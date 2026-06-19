@@ -1,71 +1,24 @@
-# Middleware PE-2.1
+# PE-2.2 Inscripciones
 
-## Descripción
+## Pruebas de los endpoints
 
-Este proyecto implementa una API REST básica utilizando Express y TypeScript. La aplicación incluye middlewares personalizados para el registro de solicitudes (logger) y la autenticación mediante API Key.
+Servidor corriendo en `http://localhost:3000`.
 
-## Tecnologías utilizadas
+Autenticación: header `x-api-key: secreto-demo`.
 
-* Node.js
-* Express
-* TypeScript
-* Jest
-* ts-jest
+### Escenario 1 — POST /v1/inscripciones con campos válidos (esperado: 201)
 
-## Instalación
+![v1 201 Created](docs/screenshots/01-v1-201.png)
 
-Clonar el repositorio:
+### Escenario 2 — POST /v2/inscripciones con payment_method válido (esperado: 201)
 
-```bash
-git clone <URL_DEL_REPOSITORIO>
-```
+![v2 201 Created](docs/screenshots/02-v2-201.png)
 
-Instalar las dependencias:
+### Escenario 3 — POST /v2/inscripciones sin payment_method (esperado: 400)
 
-```bash
-npm install
-```
+![v2 400 campo faltante](docs/screenshots/03-v2-400-faltante.png)
 
-## Ejecución
+### Escenario 4 — POST /v2/inscripciones con payment_method inválido (esperado: 400)
 
-Para iniciar el servidor en modo desarrollo:
+![v2 400 valor inválido](docs/screenshots/04-v2-400-inválido.png)
 
-```bash
-npm run dev
-```
-
-## Testing
-
-Para ejecutar las pruebas unitarias:
-
-```bash
-npm test
-```
-
-Salida obtenida:
-
-```text
-> api-alejandro@1.0.0 test
-> jest
-
-PASS  src/middlewares/auth.test.ts
-PASS  src/middlewares/logger.test.ts
-
-Test Suites: 2 passed, 2 total
-Tests:       5 passed, 5 total
-Snapshots:   0 total
-Time:        5.344 s
-Ran all test suites.
-```
-
-Las pruebas verifican:
-
-* Funcionamiento del middleware de autenticación mediante API Key.
-* Validación de API Key ausente.
-* Validación de API Key incorrecta.
-* Validación de API Key correcta.
-* Funcionamiento del middleware logger y registro de solicitudes.
-
-## Autor
-
-Alejandro David Morocho

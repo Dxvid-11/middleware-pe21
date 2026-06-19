@@ -1,21 +1,38 @@
-import express from 'express';
-import type { Request, Response, NextFunction } from 'express';
+import express, {type Request, type Response, type NextFunction} from 'express';
 import { requestLogger } from './middlewares/logger.js';
 import { requireApiKey } from './middlewares/auth.js';
+// importar las rutas v1 y v2 para inscripciones
+import v1Inscripciones from './routes/v1/inscripciones.js';
+import v2Inscripciones from './routes/v2/inscripciones.js';
+
 
 const app = express();
+//Usando Middleware
+app.use(express.json());
+app.use(requestLogger);
+app.use(requireApiKey);
+// const no se puede reasignar un valor, es constante
+// let se puede setear el valor, es variable
+// var es para declarar variables globales
 
-app.use(express.json());      // 1. Parseo del cuerpo
-app.use(requestLogger);       // 2. Logger
-app.use(requireApiKey);       // 3. Autenticación
-
-app.get('/health', (_req: Request, res: Response) => {
-  res.json({ status: 'ok', ts: new Date().toISOString() });
+const port = 3000;
+app.get('/health', (req: Request, res: Response) => {
+    res.json(
+        {
+        code: 200,
+        status: "API saludable",
+        ts: new Date().toISOString()
+    }
+);
 });
+app.use('/v1/inscripciones', v1Inscripciones);
+app.use('/v2/inscripciones', v2Inscripciones);
 
-// Manejador de errores: siempre al final, con cuatro parámetros
+
 app.use((_err: Error, _req: Request, res: Response, _next: NextFunction) => {
   res.status(500).json({ error: 'Error interno del servidor' });
 });
 
-app.listen(3000, () => console.log('Servidor en puerto 3000'));
+app.listen(3000, () => {
+    console.log("Servidor iniciado en el puerto 3000");
+});
