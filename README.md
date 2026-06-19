@@ -1,24 +1,18 @@
-# PE-2.2 Inscripciones
+## Pruebas
 
-## Pruebas de los endpoints
+### Captura 1
 
-Servidor corriendo en `http://localhost:3000`.
+![Captura 1](docs/screenshots/Captura de pantalla 2026-06-18 080131.png)
 
-Autenticación: header `x-api-key: secreto-demo`.
+### Captura 2
 
-### Escenario 1 — POST /v1/inscripciones con campos válidos (esperado: 201)
+![Captura 2](docs/screenshots/Captura de pantalla 2026-06-18 080715.png)
 
-![v1 201 Created](docs/screenshots/01-v1-201.png)
+### Captura 3
 
-### Escenario 2 — POST /v2/inscripciones con payment_method válido (esperado: 201)
+![Captura 3](docs/screenshots/Captura de pantalla 2026-06-18 082802.png)
 
-![v2 201 Created](docs/screenshots/02-v2-201.png)
+### Captura 4
 
-### Escenario 3 — POST /v2/inscripciones sin payment_method (esperado: 400)
-
-![v2 400 campo faltante](docs/screenshots/03-v2-400-faltante.png)
-
-### Escenario 4 — POST /v2/inscripciones con payment_method inválido (esperado: 400)
-
-![v2 400 valor inválido](docs/screenshots/04-v2-400-inválido.png)
+![Captura 4](docs/screenshots/Captura de pantalla 2026-06-18 083809.png)
 
