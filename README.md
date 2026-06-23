@@ -16,3 +16,8 @@
 
 ![Captura 4](docs/screenshots/Captura%20de%20pantalla%202026-06-18%20083809.png)
 
+
+
+## Reflexión
+
+Si otro equipo comenzara a consumir esta API mañana, mejoraría el contrato OpenAPI agregando ejemplos más detallados de solicitudes y respuestas, documentación sobre autenticación, códigos de error estandarizados y descripciones más específicas para cada endpoint. También incorporaría ejemplos de uso y una guía de integración para facilitar el trabajo de los desarrolladores y reducir posibles errores durante la implementación.
