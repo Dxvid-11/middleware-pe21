@@ -1,23 +1,85 @@
-## Pruebas
+# API-ALEJANDRO
 
-### Captura 1
+## Seguridad JWT (PE-2.3)
 
-![Captura 1](docs/screenshots/Captura%20de%20pantalla%202026-06-18%20080131.png)
+Este laboratorio implementa autenticación JWT utilizando el algoritmo **HS256**, validación de firmas mediante **HMAC-SHA256**, comparación segura con `timingSafeEqual` y limitación de peticiones mediante un middleware de **Rate Limiting**.
 
-### Captura 2
+### Generar un token de prueba
 
-![Captura 2](docs/screenshots/Captura%20de%20pantalla%202026-06-18%20080715.png)
+```bash
+# Con el secreto por defecto del laboratorio
+node generate-token.mjs
 
-### Captura 3
+# Con un secreto personalizado
+JWT_SECRET=mi-secreto-largo node generate-token.mjs
+```
 
-![Captura 3](docs/screenshots/Captura%20de%20pantalla%202026-06-18%20082802.png)
+### Ejecutar el servidor
 
-### Captura 4
+```bash
+JWT_SECRET=secreto-demo-pe23 npm run dev
+```
 
-![Captura 4](docs/screenshots/Captura%20de%20pantalla%202026-06-18%20083809.png)
+### Probar el servicio
 
+#### Petición válida (esperado: HTTP 201)
 
+```bash
+curl -X POST http://localhost:3000/v2/inscripciones \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"estudianteId":"uuid-123","materias":["LTI_05A_458"],"periodoId":"2026-1","metodo_pago":"Credito"}'
+```
 
-## Reflexión
+#### Token inválido (esperado: HTTP 401)
 
-Si otro equipo comenzara a consumir esta API mañana, mejoraría el contrato OpenAPI agregando ejemplos más detallados de solicitudes y respuestas, documentación sobre autenticación, códigos de error estandarizados y descripciones más específicas para cada endpoint. También incorporaría ejemplos de uso y una guía de integración para facilitar el trabajo de los desarrolladores y reducir posibles errores durante la implementación.
+```bash
+curl -X POST http://localhost:3000/v2/inscripciones \
+  -H "Authorization: Bearer token.invalido.xxx"
+```
+
+### Variables de entorno
+
+Crear un archivo `.env` a partir de `.env.example` y configurar:
+
+```env
+JWT_SECRET=secreto-demo-pe23
+```
+
+---
+
+## Evidencias de funcionamiento
+
+### Prueba 1 - Token válido (HTTP 201 Created)
+
+La API acepta un JWT firmado correctamente y registra la inscripción.
+
+![Prueba 1 - 201 Created](./Captura%20de%20pantalla%202026-06-26%20105037.png)
+
+---
+
+### Prueba 2 - Validación de datos (HTTP 400 Bad Request)
+
+La API rechaza solicitudes con campos obligatorios incompletos.
+
+![Prueba 2 - 400 Bad Request](./Captura%20de%20pantalla%202026-06-26%20110114.png)
+
+---
+
+### Prueba 3 - Firma inválida (HTTP 401 Unauthorized)
+
+La API detecta una firma JWT adulterada y rechaza la petición.
+
+![Prueba 3 - 401 Unauthorized](./Captura%20de%20pantalla%202026-06-25%20192033.png)
+
+---
+
+## Tecnologías utilizadas
+
+* Node.js
+* Express
+* TypeScript
+* JWT (HS256)
+* HMAC-SHA256
+* Postman
+* Nodemon
