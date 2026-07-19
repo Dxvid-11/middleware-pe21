@@ -221,7 +221,7 @@ Ingeniería en Tecnologías de la Información
 
 ---
 
-# GTA-11 – Políticas de Acceso y Trazabilidad
+# TA-11 – Políticas de Acceso y Trazabilidad
 
 ## Actividad 1
 
@@ -233,6 +233,27 @@ Archivo:
 
 El modelo propuesto combina RBAC para la autorización basada en roles y ABAC para aplicar restricciones contextuales como el identificador del estudiante, la carrera y el período académico.
 
+---
+
+# Evidencias
+
+## Pruebas RBAC
+
+### GET /v1/calificaciones (200 OK)
+
+![RBAC 200](../screenshots/Captura%20de%20pantalla%202026-07-18%20103022.png)
+
+### POST /v1/calificaciones (403 Forbidden)
+
+![RBAC 403](../screenshots/Captura%20de%20pantalla%202026-07-18%20103125.png)
+
+### GET /v1/reporte (200 OK)
+
+![Reporte 200](../screenshots/Captura%20de%20pantalla%202026-07-18%20103434.png)
+
+### GET /v1/reporte (403 Forbidden)
+
+![Reporte 403](../screenshots/Captura%20de%20pantalla%202026-07-18%20103803.png)
 
 ## Actividad 2
 
@@ -250,6 +271,19 @@ La solución incorpora:
 - Sentencias `GRANT` y `REVOKE`.
 - Restricción de acceso únicamente mediante vistas.
 
+---
+
+# Evidencias
+
+## Vistas MySQL
+
+![Vista MySQL](../screenshots/Captura%20de%20pantalla%202026-07-18%20112009.png)
+
+## Consulta de calificaciones
+
+![Consulta](../screenshots/Captura%20de%20pantalla%202026-07-18%20183955.png)
+
+
 ## Actividad 3
 
 Se incorporaron consultas SQL orientadas a la trazabilidad y auditoría del sistema académico.
@@ -264,3 +298,19 @@ Las consultas permiten:
 - Obtener accesos denegados (HTTP 403).
 - Consultar el historial de un usuario específico.
 - Generar estadísticas de solicitudes exitosas por usuario.
+
+---
+
+# Evidencias
+
+## Registro de auditoría
+
+![Auditoría](../screenshots/Captura%20de%20pantalla%202026-07-18%20184028.png)
+
+## Consulta SQL
+
+![Consulta SQL](../screenshots/Captura%20de%20pantalla%202026-07-18%20184230.png)
+
+## Resultados
+
+![Resultados](../screenshots/Captura%20de%20pantalla%202026-07-18%20184338.png)
