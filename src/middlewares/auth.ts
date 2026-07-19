@@ -83,11 +83,13 @@ export function requireJwt(
     }
 
     // Guardar usuario en la request
-    (req as Request & { user?: unknown }).user = {
-      sub: claims.sub,
-      scope: claims.scope ?? ''
-    };
+(req as Request & { user?: unknown }).user = {
+  sub: claims.sub,
 
+  scope: claims.scope ?? '',
+
+  roles: claims.roles ?? []
+};
     next();
   } catch (error) {
     return res.status(401).json({

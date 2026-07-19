@@ -15,14 +15,23 @@ const header = base64url(JSON.stringify({
 }));
 
 const payload = base64url(JSON.stringify({
-  sub: '20251042',
-  iss: 'https://auth.uide.edu.ec',
-  aud: 'https://api.uide.edu.ec/inscripciones',
-  scope: 'inscripciones:write',
-  exp: Math.floor(Date.now() / 1000) + 3600,
-  jti: randomUUID()
-}));
 
+  sub: '20251042',
+
+  iss: 'https://auth.uide.edu.ec',
+
+  aud: 'https://api.uide.edu.ec/inscripciones',
+
+  scope: 'inscripciones:write',
+
+  // NUEVO CAMPO PARA RBAC
+  roles: ["coordinador_academico"],
+
+  exp: Math.floor(Date.now() / 1000) + 3600,
+
+  jti: randomUUID()
+
+}));
 const sig = createHmac('sha256', secret)
   .update(`${header}.${payload}`)
   .digest('base64url');
