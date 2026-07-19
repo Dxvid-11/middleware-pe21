@@ -229,7 +229,7 @@ Se realizó el análisis del modelo de control de acceso para las herramientas i
 
 Archivo:
 
-- `docs/GTA-11/actividad1.md`
+- `docs/TA-Semana11/actividad1.md`
 
 El modelo propuesto combina RBAC para la autorización basada en roles y ABAC para aplicar restricciones contextuales como el identificador del estudiante, la carrera y el período académico.
 
@@ -241,19 +241,21 @@ El modelo propuesto combina RBAC para la autorización basada en roles y ABAC pa
 
 ### GET /v1/calificaciones (200 OK)
 
-![RBAC 200](../screenshots/Captura%20de%20pantalla%202026-07-18%20103022.png)
+![RBAC 200](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20103022.png)
 
 ### POST /v1/calificaciones (403 Forbidden)
 
-![RBAC 403](../screenshots/Captura%20de%20pantalla%202026-07-18%20103125.png)
+![RBAC 403](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20103125.png)
 
 ### GET /v1/reporte (200 OK)
 
-![Reporte 200](../screenshots/Captura%20de%20pantalla%202026-07-18%20103434.png)
+![Reporte 200](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20103434.png)
 
 ### GET /v1/reporte (403 Forbidden)
 
-![Reporte 403](../screenshots/Captura%20de%20pantalla%202026-07-18%20103803.png)
+![Reporte 403](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20103803.png)
+
+---
 
 ## Actividad 2
 
@@ -261,8 +263,8 @@ Se implementó el diseño de vistas MySQL para restringir el acceso a la informa
 
 Archivos incluidos:
 
-- `docs/GTA-11/actividad2.sql`
-- `docs/GTA-11/actividad2.md`
+- `docs/TA-Semana11/actividad2.sql`
+- `docs/TA-Semana11/actividad2.md`
 
 La solución incorpora:
 
@@ -277,12 +279,13 @@ La solución incorpora:
 
 ## Vistas MySQL
 
-![Vista MySQL](../screenshots/Captura%20de%20pantalla%202026-07-18%20112009.png)
+![Vista MySQL](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20112009.png)
 
 ## Consulta de calificaciones
 
-![Consulta](../screenshots/Captura%20de%20pantalla%202026-07-18%20183955.png)
+![Consulta](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20183955.png)
 
+---
 
 ## Actividad 3
 
@@ -290,8 +293,8 @@ Se incorporaron consultas SQL orientadas a la trazabilidad y auditoría del sist
 
 Archivos incluidos:
 
-- `docs/GTA-11/actividad3.sql`
-- `docs/GTA-11/actividad3.md`
+- `docs/TA-Semana11/actividad3.sql`
+- `docs/TA-Semana11/actividad3.md`
 
 Las consultas permiten:
 
@@ -305,12 +308,12 @@ Las consultas permiten:
 
 ## Registro de auditoría
 
-![Auditoría](../screenshots/Captura%20de%20pantalla%202026-07-18%20184028.png)
+![Auditoría](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20184028.png)
 
 ## Consulta SQL
 
-![Consulta SQL](../screenshots/Captura%20de%20pantalla%202026-07-18%20184230.png)
+![Consulta SQL](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20184230.png)
 
 ## Resultados
 
-![Resultados](../screenshots/Captura%20de%20pantalla%202026-07-18%20184338.png)
+![Resultados](docs/screenshots/Captura%20de%20pantalla%202026-07-18%20184338.png)
