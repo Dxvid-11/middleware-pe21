@@ -221,7 +221,7 @@ Ingeniería en Tecnologías de la Información
 
 ---
 
-# TA-11 – Políticas de Acceso y Trazabilidad
+# GTA-11 – Políticas de Acceso y Trazabilidad
 
 ## Actividad 1
 
