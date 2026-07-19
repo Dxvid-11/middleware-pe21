@@ -217,3 +217,50 @@ https://github.com/Dxvid-11/API-ALEJANDRO
 Universidad Internacional del Ecuador (UIDE)
 
 Ingeniería en Tecnologías de la Información
+
+
+---
+
+# GTA-11 – Políticas de Acceso y Trazabilidad
+
+## Actividad 1
+
+Se realizó el análisis del modelo de control de acceso para las herramientas internas del sistema académico de la UIDE Loja, identificando los roles autorizados y las restricciones adicionales para cada operación.
+
+Archivo:
+
+- `docs/GTA-11/actividad1.md`
+
+El modelo propuesto combina RBAC para la autorización basada en roles y ABAC para aplicar restricciones contextuales como el identificador del estudiante, la carrera y el período académico.
+
+
+## Actividad 2
+
+Se implementó el diseño de vistas MySQL para restringir el acceso a la información académica mediante el principio de mínimo privilegio.
+
+Archivos incluidos:
+
+- `docs/GTA-11/actividad2.sql`
+- `docs/GTA-11/actividad2.md`
+
+La solución incorpora:
+
+- Vista completa de calificaciones.
+- Vista pública con proyección de columnas.
+- Sentencias `GRANT` y `REVOKE`.
+- Restricción de acceso únicamente mediante vistas.
+
+## Actividad 3
+
+Se incorporaron consultas SQL orientadas a la trazabilidad y auditoría del sistema académico.
+
+Archivos incluidos:
+
+- `docs/GTA-11/actividad3.sql`
+- `docs/GTA-11/actividad3.md`
+
+Las consultas permiten:
+
+- Obtener accesos denegados (HTTP 403).
+- Consultar el historial de un usuario específico.
+- Generar estadísticas de solicitudes exitosas por usuario.
